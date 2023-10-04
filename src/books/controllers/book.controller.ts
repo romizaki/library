@@ -16,4 +16,16 @@ export class BookController {
   inseretBook(@Body() payload: CreateBookRequestDto) {
     return this.bookService.createNewBook(payload);
   }
+  @Post('borrow')
+  borrowBook(@Body() payload) {
+    return this.bookService.borrowBook(payload)
+  }
+  @Post('return')
+  returnBook(@Body() payload) {
+    return this.bookService.returnBook(payload)
+  }
+  @Get('list-borrowed')
+  listingBorrowed(@Query() params) {
+    return this.bookService.getBorrowedBooks(params)
+  }
 }
